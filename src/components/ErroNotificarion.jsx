@@ -19,7 +19,7 @@ function ErroNotificarion({message, enviarDados}) {
             ></path>
           </svg>
         </div>
-        <div class="error-message">{message}</div>
+        <div class="error-message"><p>{message}</p></div>
         <div class="popup-icon close-icon" onClick={() => {enviarDados(false)}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

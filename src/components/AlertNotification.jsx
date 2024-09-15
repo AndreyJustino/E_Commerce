@@ -5,12 +5,12 @@ function AlertNotification({message, enviarDados}) {
   
   return (
    
-    <div class="popup-container">
+    <div className="popup-container">
 
-        <div class="popup alert-popup">
-          <div class="popup-icon alert-icon">
+        <div className="popup alert-popup">
+          <div className="popup-icon alert-icon">
             <svg
-              class="alert-svg"
+              className="alert-svg"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               aria-hidden="true"
@@ -22,16 +22,17 @@ function AlertNotification({message, enviarDados}) {
               ></path>
             </svg>
           </div>
-          <div class="alert-message">{message}</div>
-          <div class="popup-icon close-icon" onClick={() => {enviarDados(false)}}>
+          <div className="alert-message"><p>{message}</p></div>
+          <div className="popup-icon close-icon" onClick={() => {enviarDados(false)}}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
-              class="close-svg"
+              className="close-svg"
+              
             >
               <path
                 d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"
-                class="close-path"
+                className="close-path"
               ></path>
             </svg>
           </div>
