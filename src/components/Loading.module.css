@@ -1,8 +1,7 @@
 .svg {
-  width: 3.25em;
+  width: 5.25em;
   transform-origin: center;
   animation: rotate4 2s linear infinite;
-  z-index: 99999;
 }
 
 .circle {
