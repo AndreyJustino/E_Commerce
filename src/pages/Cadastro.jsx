@@ -61,21 +61,26 @@ function Cadastro() {
   }
 
   return (
-    <section className={style.sectionForm}>
-      <div className={style.overlay} id="overlay"></div>
-      {loading && <div className={style.loading}><Loading/></div>}
-      <form autoComplete="off" onSubmit={cadastrar} className={style.form}>
+    <section className={style.sectionFormCadastro}>
+      <div className={style.overlayCadastro} id="overlay"></div>
+      
+      {loading && <div className={style.loadingCadastro}><Loading/></div>}
+      
+      <form autoComplete="off" onSubmit={cadastrar} className={style.formCadastro}>
         <h1>Cadastro</h1>
+        
         {erro.estado && (
           <AlertNotification message={erro.mensagem} enviarDados={receberDados} />
         )}
+
         {sucesso.estado && (
           <SucessNotification
             message={sucesso.mensagem}
             enviarDados={receberDados}
           />
         )}
-        <div className={style.bloco}>
+
+        <div className={style.blocoCadastro}>
           <label htmlFor="nome">Nome: </label>
           <input
             placeholder={"Digite seu nome"}
@@ -84,7 +89,8 @@ function Cadastro() {
             onChange={(e) => setNome(e.target.value)}
           />
         </div>
-        <div className={style.bloco}>
+
+        <div className={style.blocoCadastro}>
           <label htmlFor="telefone">Telefone: </label>
           <input
             placeholder="xx xxxxx-xxxx"
@@ -94,7 +100,8 @@ function Cadastro() {
             onChange={(e) => setTelefone(e.target.value)}
           />
         </div>
-        <div className={style.bloco}>
+
+        <div className={style.blocoCadastro}>
           <label htmlFor="email">Email: </label>
           <input
             placeholder="Digite seu e-mail"
@@ -103,7 +110,8 @@ function Cadastro() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className={style.bloco}>
+
+        <div className={style.blocoCadastro}>
           <label htmlFor="senha">Senha: </label>
           <input
             type="password"
@@ -114,6 +122,7 @@ function Cadastro() {
             onChange={(e) => setSenha(e.target.value)}
           />
         </div>
+
         <button type="submit">Enviar</button>
       </form>
     </section>
