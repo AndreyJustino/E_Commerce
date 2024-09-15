@@ -3,13 +3,13 @@ import "./Sucess.css";
 
 function SucessNotification({ message, enviarDados }) {
   return (
-    <div class="popup-container">
-      <div class="popup success-popup">
-        <div class="popup-icon success-icon">
+    <div className="popup-container">
+      <div className="popup success-popup">
+        <div className="popup-icon success-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
-            class="success-svg"
+            className="success-svg"
           >
             <path
               fill-rule="evenodd"
@@ -18,17 +18,18 @@ function SucessNotification({ message, enviarDados }) {
             ></path>
           </svg>
         </div>
-        <div class="success-message"><p>{message}</p></div>
-        <div class="popup-icon close-icon" onClick={() => {enviarDados(false)}}>
+        <div className="success-message"><p>{message}</p></div>
+        <div className="popup-icon close-icon" onClick={() => {
+          enviarDados(false)}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
             aria-hidden="true"
-            class="close-svg"
+            className="close-svg"
           >
             <path
               d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"
-              class="close-path"
+              className="close-path"
             ></path>
           </svg>
         </div>

@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 import style from "./Cadastro.module.css";
 import AlertNotification from "../components/AlertNotification";
+import SucessNotification from "../components/SucessNotification";
+import Loading from "../components/Loading";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [erro, setErro] = useState({estado: false, mensagem: ""});
+  const [erro, setErro] = useState({ estado: false, mensagem: "" });
+  const [sucesso, setSucesso] = useState({ estado: false, mensagem: "" });
+  const [loading, setLoading] = useState(false);
 
   function cadastrar(e) {
     e.preventDefault();
 
     if (!nome || !telefone || !email || !senha) {
-      setErro({estado:true, mensagem: "Preencha todos os campos"});
+      setErro({ estado: true, mensagem: "Preencha todos os campos" });
       return;
     }
 
     try {
+      setLoading(true);
       fetch("https://api-e-commerce-m17f.onrender.com/register", {
         method: "POST",
         headers: {
@@ -32,7 +37,14 @@ function Cadastro() {
       })
         .then((response) => response.json())
         .then((data) => {
-          setErro({estado:true, mensagem: data.message});
+          if (data.status != 201) {
+            setLoading(false);
+            return setErro({ estado: true, mensagem: data.message });
+          }
+
+          setLoading(false);
+          setSucesso({ estado: true, mensagem: data.message });
+
         });
     } catch (error) {
       console.log(error);
@@ -41,16 +53,21 @@ function Cadastro() {
 
   function receberDados(dados) {
     setErro(dados);
+    setSucesso(dados)
   }
 
   return (
     <form autoComplete="off" onSubmit={cadastrar}>
       {erro.estado && (
-        <AlertNotification
-          message={erro.mensagem}
+        <AlertNotification message={erro.mensagem} enviarDados={receberDados} />
+      )}
+      {sucesso.estado && (
+        <SucessNotification
+          message={sucesso.mensagem}
           enviarDados={receberDados}
         />
       )}
+      {loading && <Loading/>}
 
       <div>
         <label htmlFor="nome">Nome: </label>
