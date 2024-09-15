@@ -42,11 +42,13 @@ function Cadastro() {
           if (data.status != 201) {
             setLoading(false);
             overlay.style.display = "none"
+            setSucesso({estado: false, mensagem: ""})
             return setErro({ estado: true, mensagem: data.message });
           }
 
           setLoading(false);
           overlay.style.display = "none"
+          setErro({estado: false, mensagem: ""})
           setSucesso({ estado: true, mensagem: data.message });
 
         });
