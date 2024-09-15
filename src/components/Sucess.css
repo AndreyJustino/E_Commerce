@@ -1,0 +1,44 @@
+/* COMMON STYLES*/
+.popup {
+  margin: 10px;
+  box-shadow: 4px 4px 10px -10px rgba(0, 0, 0, 1);
+  width: 300px;
+  justify-content: space-around;
+  align-items: center;
+  display: flex;
+  border-radius: 4px;
+  padding: 5px 0;
+  font-weight: 300;
+}
+.popup svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.popup-icon svg {
+  margin: 5px;
+  display: flex;
+  align-items: center;
+}
+.close-icon {
+  margin-left: auto;
+}
+.close-svg {
+  cursor: pointer;
+}
+.close-path {
+  fill: grey;
+}
+
+/*SEPERATE STYLES*/
+
+/* SUCCESS */
+.success-popup {
+  background-color: #edfbd8;
+  border: solid 1px #84d65a;
+}
+.success-icon path {
+  fill: #84d65a;
+}
+.success-message {
+  color: #2b641e;
+}
