@@ -63,10 +63,10 @@ function Cadastro() {
   }
 
   return (
-    <section className={style.sectionFormCadastro}>
-      <div className={style.overlayCadastro} id="overlay"></div>
+    <section className="sectionFormCL">
+      <div className="overlayCL" id="overlay"></div>
       
-      {loading && <div className={style.loadingCadastro}><Loading/></div>}
+      {loading && <div className="loadingCL"><Loading/></div>}
       
       <form autoComplete="off" onSubmit={cadastrar} className={style.formCadastro}>
         <h1>Cadastro</h1>
@@ -82,7 +82,7 @@ function Cadastro() {
           />
         )}
 
-        <div className={style.blocoCadastro}>
+        <div className="blocoCL">
           <label htmlFor="nome">Nome: </label>
           <input
             placeholder={"Digite seu nome"}
@@ -92,7 +92,7 @@ function Cadastro() {
           />
         </div>
 
-        <div className={style.blocoCadastro}>
+        <div className="blocoCL">
           <label htmlFor="telefone">Telefone: </label>
           <input
             placeholder="xx xxxxx-xxxx"
@@ -103,7 +103,7 @@ function Cadastro() {
           />
         </div>
 
-        <div className={style.blocoCadastro}>
+        <div className="blocoCL">
           <label htmlFor="email">Email: </label>
           <input
             placeholder="Digite seu e-mail"
@@ -113,7 +113,7 @@ function Cadastro() {
           />
         </div>
 
-        <div className={style.blocoCadastro}>
+        <div className="blocoCL">
           <label htmlFor="senha">Senha: </label>
           <input
             type="password"
