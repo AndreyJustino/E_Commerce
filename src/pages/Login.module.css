@@ -1,0 +1,35 @@
+.formLogin{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 415px;
+    width: 340px;
+    background-color: #ffffff38;
+    border-radius: 10px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.formLogin h1{
+    font-size: 2em;
+}
+
+.formLogin button{
+    padding: 10px;
+    width: 216px;
+    margin-top: 20px;
+    outline: none;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.6em;
+    font-weight: 600;
+    background-color: #8a8a8a;
+    transition: 0.3s ease;
+}
+
+.formLogin button:hover{
+    transform: scale(1.1);
+}
