@@ -1,13 +1,13 @@
-import Cadastro from "./pages/Cadastro"
-import Login from "./pages/Login"
+import Cadastro from "./pages/Cadastro";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
 function App() {
-
   return (
     <>
-      <Login/>
+      <Home />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
