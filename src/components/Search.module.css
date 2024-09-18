@@ -51,9 +51,17 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 500px) {
+  .group {
+    width: 250px;
+    
+  }
+}
+
 @media screen and (min-width: 600px) {
   .group {
     width: 350px;
+    margin-left: 20px;
   }
 }
 
