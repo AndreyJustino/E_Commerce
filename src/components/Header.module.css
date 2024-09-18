@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 4%;
+  padding: 10px 2%;
   background-color: #100d20;
   box-shadow: 0px 5px 15px black;
 }
@@ -74,8 +74,9 @@
 
 .nav_desktop ul{
   display: flex;
-  gap: 10px;
+  gap: 13px;
   list-style: none;
+  align-items: center;
 }
 
 .nav_desktop ul li {
@@ -85,10 +86,27 @@
   font-weight: 600;
   position: relative;
 }
+
+.molduraCartHeader{
+  height: 50px;
+  width: 50px;
+  background-color: #443c71;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.molduraCartHeader img{
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
 /* ------------------------------------------------- */
 /* ------------------------------------------------- */
 
-@media screen and  (min-width: 756px) {
+@media screen and  (min-width: 805px) {
   .nav_desktop{
     display: block;
   }

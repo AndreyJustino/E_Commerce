@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./Header.module.css";
 import SearchInput from "./SearchInput";
+import axios from 'axios';
+import Loading from "./Loading";
 
 function Header() {
-  const [dados, setDados] = useState({ estado: false, data: null });
+  const [loading, setLoading] = useState(false)
 
   function abrirMenu(){
     const menu = document.getElementById("menu-mobile")
@@ -19,40 +21,42 @@ function Header() {
     menu.style.display = "none"
   }
 
-  function buscar(dado) {
+  async function buscar(dado) {
     try {
-      fetch(`https://api-e-commerce-m17f.onrender.com/getProducts/${dado}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-        });
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "block";
+      setLoading(true);
+  
+      if (dado) {
+        const response = await axios.get(`https://api-e-commerce-m17f.onrender.com/getProducts/${dado}`);
+        console.log(response.data);
+      }
+  
+      setLoading(false);
+      overlay.style.display = "none";
+
     } catch (error) {
-      console.log(error.message);
+        console.log(error.message);
+        setLoading(false);
+        overlay.style.display = "none"
     }
   }
-
-  useEffect(() => {
-    console.log(dados.estado);
-    if (dados.estado) {
-      buscar(dados.data);
-    }
-  }, [dados]);
+  
 
   function receberDados(dados) {
-    setDados(dados);
+    buscar(dados.data)
   }
 
   return (
     <header className={style.header}>
+      <div className="overlayCL" id="overlay"></div>
+      {
+        loading &&
+        <div className="loadingCL"><Loading/></div>
+      }
       <img src="./src/assets/logo.png" alt="logo" className={style.logoHeader}/>
 
-      <SearchInput/>
+      <SearchInput receberDados={receberDados}/>
 
       <div className={style.btn_abrir} id="btn-abrir" onClick={abrirMenu}>
         <img src="./src/assets/icon/menu.png" alt="menu" className={style.menu}/>
@@ -68,6 +72,7 @@ function Header() {
             <li>Home</li>
             <li>Cadastrar</li>
             <li>Entrar</li>
+            <li>Carrinho</li>
           </ul>
         </nav>
       </div>
@@ -79,6 +84,7 @@ function Header() {
             <li>Home</li>
             <li>Cadastrar</li>
             <li>Entrar</li>
+            <li className={style.molduraCartHeader}><img src="./src/assets/icon/iconCart.png"/></li>
         </ul>
       </nav>
     </header>
