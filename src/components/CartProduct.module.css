@@ -39,6 +39,7 @@
   font-size: 1.4em;
   line-height: 1.5;
   color: #fff;
+  text-transform: capitalize;
 }
 
 .text_bodyProduct {
