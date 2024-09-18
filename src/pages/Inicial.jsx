@@ -7,7 +7,16 @@ function Inicial() {
   return (
     <main className={style.mainInicial}>
         <Header/>
-        <section>
+        <section className={style.sectionInicial}>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
+          <CartProduct/>
           <CartProduct/>
         </section>
     </main>

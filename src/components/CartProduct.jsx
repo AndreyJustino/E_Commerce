@@ -7,8 +7,9 @@ function CartProduct() {
     <div class={style.cardProduct}>
       <div class={style.card_imgProduct}></div>
       <div class={style.card_infoProduct}>
-        <p class={style.text_titleProduct}>Product title </p>
-        <p class={style.text_bodyProduct}>Product description and details</p>
+        <p class={style.text_titleProduct}>Camisa preta</p>
+        <p class={style.text_bodyProduct}>Nome do vendedor: andrey sebastian</p>
+        <p class={style.text_bodyProduct}>E-mail do vendedor: andrey@mail.com</p>
       </div>
       <div class={style.card_footerProduct}>
         <span class={style.text_titleProduct}>$499.49</span>

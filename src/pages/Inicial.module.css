@@ -1,5 +1,14 @@
 .mainInicial{
-    background-color: #322963e8;
-    height: 100vh;
+    background-color: #021553af;
+    min-height: 100vh;
     border: 2px solid red;
+}
+
+.sectionInicial{
+    border: 2px solid green;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
