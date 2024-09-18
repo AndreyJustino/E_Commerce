@@ -1,8 +1,99 @@
+.logoHeader{
+    width: 90px;
+    height: 90px;
+}
+
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 4%;
+  background-color: #100d20;
+}
+
+.menu_mobile {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  width: 55vw;
+  display: none;
+}
+
+.menu_mobile .btn_fechar img,
+.btn_abrir img {
+  width: 40px;
+  cursor: pointer;
+}
+
+.menu_mobile .btn_fechar {
+  padding: 10px 4%;
+  background-color: #100d20;
+}
+
+.nav_mobile {
+  text-align: right;
+  background-color: #100d20;
+  height: 100vh;
+}
+
+.nav_mobile ul {
+  list-style: none;
+}
+
+.nav_mobile ul li{
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 300;
+  padding: 20px 4%;
+  display: block;
+  cursor: pointer;
+  
+}
+
+.overlay_menu {
+  background-color: #0000008f;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: none;
+}
+
+/* ------------------------------------------------- */
+/* ------------------------------------------------- */
+.nav_desktop{
+  display: none;
+}
+
+.nav_desktop ul{
+  display: flex;
+  gap: 10px;
+  list-style: none;
+}
+
+.nav_desktop ul li {
+  color: white;
+  font-size: 1.6rem;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+}
+/* ------------------------------------------------- */
+/* ------------------------------------------------- */
+
+
+
+/* .header {
   display: flex;
   justify-content: center;
   padding: 10px 0 10px 0px;
   background-color: #100d20;
+  flex-wrap: wrap;
 }
 
 .sectionHeader {
@@ -27,24 +118,27 @@
   align-items: center;
 }
 
-.containerPerfil {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  font-size: 1.4em;
-  gap: 5px;
+.molduraIconMenu, .molduraIconClose{
+  width: 45px;
+  height: 45px;
 }
 
-.molduraPerfil {
-  background-color: #ccc;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.containerMenuHeader img,
+.molduraIconClose img{
+  width: 100%;
+  height: 100%;
 }
 
-@media screen and (min-width: 860px) {
-  .containerPerfil {
-    flex-direction: row;
-  }
+.containerMenuHeader{
+  display: none;
 }
+
+.containerCloseHeader{
+  display: block;
+  border: 2px solid red;
+  width: 70vw;
+}
+
+.containerCloseHeader ul{
+  color: white;
+} */

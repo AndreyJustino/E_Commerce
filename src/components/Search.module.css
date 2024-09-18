@@ -1,3 +1,7 @@
+.divSearchContainer{
+  display: flex;
+}
+
 .group {
   display: flex;
   line-height: 28px;
