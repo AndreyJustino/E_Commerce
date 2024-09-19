@@ -3,6 +3,7 @@ import style from "./Cadastro.module.css";
 import AlertNotification from "../components/AlertNotification";
 import SucessNotification from "../components/SucessNotification";
 import Loading from "../components/Loading";
+import { useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -12,8 +13,9 @@ function Cadastro() {
   const [erro, setErro] = useState({ estado: false, mensagem: "" });
   const [sucesso, setSucesso] = useState({ estado: false, mensagem: "" });
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate()
 
-  function cadastrar(e) {
+  async function cadastrar(e) {
     e.preventDefault();
 
     if (!nome || !telefone || !email || !senha) {
@@ -25,7 +27,7 @@ function Cadastro() {
       const overlay = document.getElementById("overlay")
       overlay.style.display = "block"
       setLoading(true);
-      fetch("https://api-e-commerce-m17f.onrender.com/register", {
+      await fetch("https://api-e-commerce-m17f.onrender.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,9 +51,13 @@ function Cadastro() {
           setLoading(false);
           overlay.style.display = "none"
           setErro({estado: false, mensagem: ""})
+
           setSucesso({ estado: true, mensagem: data.message });
 
         });
+        setTimeout(() => {
+          navigate('/login')
+        }, 5000)
     } catch (error) {
       console.log(error);
     }

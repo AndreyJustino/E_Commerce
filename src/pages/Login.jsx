@@ -3,6 +3,7 @@ import AlertNotification from "../components/AlertNotification";
 import Loading from "../components/Loading";
 import SucessNotification from "../components/SucessNotification";
 import style from "./Login.module.css"
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState()
@@ -10,8 +11,9 @@ function Login() {
     const [erro, setErro] = useState({estado: false, mensagem: ""})
     const [loading, setLoading] = useState(false)
     const [sucess, setSucess] = useState({estado: false, mensagem: ""})
+    const navigate = useNavigate()
 
-    function login(e){
+    async function login(e){
         e.preventDefault()
         if(!email || !password){
             setErro({estado: true, mensagem: "Preencha todos os campos"})
@@ -21,7 +23,7 @@ function Login() {
             const overlay = document.getElementById("overlay")
             overlay.style.display = "block"
             setLoading(true)
-            fetch("https://api-e-commerce-m17f.onrender.com/loginUser", {
+            await fetch("https://api-e-commerce-m17f.onrender.com/loginUser", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -43,6 +45,11 @@ function Login() {
                 setErro({estado: false, mensagem: ""})
                 setSucess({estado: true, mensagem: data.message})
             })
+
+            setTimeout(() => {
+              navigate("/")
+            }, 3000)
+            
         }catch(error){
             console.error(error)
         }
