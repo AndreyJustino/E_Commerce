@@ -3,6 +3,7 @@ import style from "./Header.module.css";
 import SearchInput from "./SearchInput";
 import axios from 'axios';
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [loading, setLoading] = useState(false)
@@ -69,10 +70,10 @@ function Header() {
 
         <nav class={style.nav_mobile} id="nav-mobile">
           <ul>
-            <li>Home</li>
-            <li>Cadastrar</li>
-            <li>Entrar</li>
-            <li>Carrinho</li>
+            <li><Link to="/" className="link">Home</Link></li>
+            <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
+            <li><Link to="/login" className="link">Entrar</Link></li>
+            <li><Link to="/carrinho" className="link">Carrinho</Link></li>
           </ul>
         </nav>
       </div>
@@ -81,10 +82,14 @@ function Header() {
 
       <nav class={style.nav_desktop}>
         <ul>
-            <li>Home</li>
-            <li>Cadastrar</li>
-            <li>Entrar</li>
-            <li className={style.molduraCartHeader}><img src="./src/assets/icon/iconCart.png"/></li>
+            <li><Link to="/" className="link">Home</Link></li>
+            <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
+            <li><Link to="/login" className="link">Entrar</Link></li>
+            <li className={style.molduraCartHeader}>
+              <Link to="/carrinho" className="link">
+                <img src="./src/assets/icon/iconCart.png"/>
+              </Link>
+            </li>
         </ul>
       </nav>
     </header>

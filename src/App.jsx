@@ -1,11 +1,9 @@
-import Cadastro from "./pages/Cadastro";
-import Inicial from "./pages/Inicial";
-import Login from "./pages/Login";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <>
-      <Inicial/>
+      <Outlet/>
     </>
   );
 }

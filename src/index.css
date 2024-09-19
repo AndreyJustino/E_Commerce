@@ -95,3 +95,8 @@ html{
   color: #555;
   outline: none;
 }
+
+.link{
+  text-decoration: none;
+  color: #fff;
+}
