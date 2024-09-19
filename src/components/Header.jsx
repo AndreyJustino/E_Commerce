@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   const [loading, setLoading] = useState(false)
+  const token = localStorage.getItem('token')
 
   function abrirMenu(){
     const menu = document.getElementById("menu-mobile")
@@ -55,7 +56,9 @@ function Header() {
         loading &&
         <div className="loadingCL"><Loading/></div>
       }
-      <img src="./src/assets/logo.png" alt="logo" className={style.logoHeader}/>
+      <Link to="/">
+        <img src="./src/assets/logo.png" alt="logo" className={style.logoHeader}/>
+      </Link>
 
       <SearchInput receberDados={receberDados}/>
 
@@ -69,28 +72,51 @@ function Header() {
         </div>
 
         <nav class={style.nav_mobile} id="nav-mobile">
-          <ul>
-            <li><Link to="/" className="link">Home</Link></li>
-            <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
-            <li><Link to="/login" className="link">Entrar</Link></li>
-            <li><Link to="/carrinho" className="link">Carrinho</Link></li>
-          </ul>
+          {
+            token ? (
+              <ul>
+                <li><Link to="/carrinho" className="link">Carrinho</Link></li>
+              </ul>
+            ) :(
+
+              <ul>
+                <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
+                <li><Link to="/login" className="link">Entrar</Link></li>
+                <li><Link to="/carrinho" className="link">Carrinho</Link></li>
+              </ul>
+            )
+          }
+          
         </nav>
       </div>
 
       <div class={style.overlay_menu} id="overlay-menu"></div>
 
       <nav class={style.nav_desktop}>
-        <ul>
-            <li><Link to="/" className="link">Home</Link></li>
-            <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
-            <li><Link to="/login" className="link">Entrar</Link></li>
-            <li className={style.molduraCartHeader}>
-              <Link to="/carrinho" className="link">
-                <img src="./src/assets/icon/iconCart.png"/>
-              </Link>
-            </li>
-        </ul>
+
+          {
+            token ? (
+              <ul>
+                <li className={style.molduraCartHeader}>
+                  <Link to="/carrinho" className="link">
+                    <img src="./src/assets/icon/iconCart.png"/>
+                  </Link>
+                </li>
+              </ul>
+            ) : (
+              <ul>
+                <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
+                <li><Link to="/login" className="link">Entrar</Link></li>
+                <li className={style.molduraCartHeader}>
+                  <Link to="/carrinho" className="link">
+                    <img src="./src/assets/icon/iconCart.png"/>
+                  </Link>
+                </li>
+              </ul>
+            )
+          }
+
+        
       </nav>
     </header>
   );
