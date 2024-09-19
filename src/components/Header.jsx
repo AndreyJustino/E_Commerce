@@ -4,10 +4,18 @@ import SearchInput from "./SearchInput";
 import axios from 'axios';
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [loading, setLoading] = useState(false)
   const token = localStorage.getItem('token')
+  const navigate = useNavigate()
+  
+  function redirecionarCart(){
+    
+    return navigate("/carrinho")  
+    
+  }
 
   function abrirMenu(){
     const menu = document.getElementById("menu-mobile")
@@ -71,18 +79,17 @@ function Header() {
           <img src="./src/assets/icon/close.png" alt="close" />
         </div>
 
-        <nav class={style.nav_mobile} id="nav-mobile">
+        <nav className={style.nav_mobile} id="nav-mobile">
           {
             token ? (
               <ul>
-                <li><Link to="/carrinho" className="link">Carrinho</Link></li>
+                <li onClick={redirecionarCart}>Carrinho</li>
               </ul>
             ) :(
 
               <ul>
                 <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
                 <li><Link to="/login" className="link">Entrar</Link></li>
-                <li><Link to="/carrinho" className="link">Carrinho</Link></li>
               </ul>
             )
           }
@@ -90,28 +97,21 @@ function Header() {
         </nav>
       </div>
 
-      <div class={style.overlay_menu} id="overlay-menu"></div>
+      <div className={style.overlay_menu} id="overlay-menu"></div>
 
-      <nav class={style.nav_desktop}>
+      <nav className={style.nav_desktop}>
 
           {
             token ? (
               <ul>
-                <li className={style.molduraCartHeader}>
-                  <Link to="/carrinho" className="link">
-                    <img src="./src/assets/icon/iconCart.png"/>
-                  </Link>
+                <li className={style.molduraCartHeader} onClick={redirecionarCart}>
+                  <img src="./src/assets/icon/iconCart.png"/>
                 </li>
               </ul>
             ) : (
               <ul>
                 <li><Link to="/cadastrar" className="link">Cadastrar</Link></li>
                 <li><Link to="/login" className="link">Entrar</Link></li>
-                <li className={style.molduraCartHeader}>
-                  <Link to="/carrinho" className="link">
-                    <img src="./src/assets/icon/iconCart.png"/>
-                  </Link>
-                </li>
               </ul>
             )
           }
