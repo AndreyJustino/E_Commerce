@@ -3,7 +3,7 @@ import style from "./Cadastro.module.css";
 import AlertNotification from "../components/AlertNotification";
 import SucessNotification from "../components/SucessNotification";
 import Loading from "../components/Loading";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Cadastro() {
   const [nome, setNome] = useState("");
@@ -54,10 +54,10 @@ function Cadastro() {
 
           setSucesso({ estado: true, mensagem: data.message });
 
+          setTimeout(() => {
+            navigate('/login')
+          }, 5000)
         });
-        setTimeout(() => {
-          navigate('/login')
-        }, 5000)
     } catch (error) {
       console.log(error);
     }
@@ -130,7 +130,9 @@ function Cadastro() {
             onChange={(e) => setSenha(e.target.value)}
           />
         </div>
-
+        <p className="paragrafoLinkCL">
+          Ja tem cadastro? <Link to="/login" className="link">Clique aqui</Link>
+        </p>
         <button type="submit">Enviar</button>
       </form>
     </section>

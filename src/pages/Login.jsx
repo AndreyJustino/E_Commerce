@@ -3,7 +3,7 @@ import AlertNotification from "../components/AlertNotification";
 import Loading from "../components/Loading";
 import SucessNotification from "../components/SucessNotification";
 import style from "./Login.module.css"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState()
@@ -44,11 +44,13 @@ function Login() {
                 localStorage.setItem("token", data.token)
                 setErro({estado: false, mensagem: ""})
                 setSucess({estado: true, mensagem: data.message})
+
+                setTimeout(() => {
+                  navigate("/")
+                }, 3000)
             })
 
-            setTimeout(() => {
-              navigate("/")
-            }, 3000)
+            
             
         }catch(error){
             console.error(error)
@@ -102,7 +104,9 @@ function Login() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
+        <p className="paragrafoLinkCL">
+          Não tem conta? <Link to="/cadastrar" className="link">Clique aqui</Link>
+        </p>
         <button type="submit">Login</button>
       </form>
     </section>
