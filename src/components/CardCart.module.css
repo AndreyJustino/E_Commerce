@@ -1,0 +1,92 @@
+.cardCart{
+    /* border: 2px solid orangered; */
+}
+
+.cardCart{
+    background-color: #fff;
+    /* border: 2px solid blue; */
+    display: flex;
+    /* gap: 10px; */
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 800px;
+    border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.cardCart h1{
+    font-size: 1.6em;
+    margin: 0 5px;
+}
+
+.cardCart p{
+    margin: 0 5px;
+}
+
+/* .divContainerCart{
+    display: flex;
+    border: 2px solid red;
+} */
+
+.containerTituloCart{
+    border: 2px solid blue;
+    padding-top: 15px;
+}
+
+.containerTituloCart p{
+    font-size: 1.2em;
+}
+
+.molduraImgCart{
+    height: 105px;
+    width: 145px;
+    background-color: #ccc;
+}
+
+.containerPrecoCart{
+    border: 2px solid yellow;
+    font-size: 1.4em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin-left: 10px; */
+    /* padding: 0 auto; */
+    /* color: #fff; */
+}
+
+.containerPrecoCart h2{
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.containerPrecoCart button{
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-right: none;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.containerPrecoCart span button {
+    border: 1px solid #ccc;
+    border-left: none;
+}
+
+
+.containerPrecoCart input{
+    height: 30px;
+    border: none;
+    width: 50px;
+    margin-top: 5px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 1.2em;
+    text-align: center;
+}
