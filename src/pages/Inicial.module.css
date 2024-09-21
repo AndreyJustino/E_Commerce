@@ -8,6 +8,7 @@
 }
 
 .sectionInicial{
+    position: relative;
     border: 2px solid green;
     margin-top: 20px;
     display: flex;

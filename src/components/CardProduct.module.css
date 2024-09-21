@@ -68,3 +68,8 @@
   border: 1px solid #f82e7f;
   background-color: #f82e7f;
 }
+
+.notificacaoCardProduct{
+  position: absolute;
+  z-index: 5;
+}
