@@ -4,6 +4,7 @@ import Loading from "../components/Loading";
 import SucessNotification from "../components/SucessNotification";
 import style from "./Login.module.css"
 import { Link, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
 
 function Login() {
     const [email, setEmail] = useState()
@@ -41,7 +42,9 @@ function Login() {
 
                 setLoading(false)
                 overlay.style.display = "none"
-                localStorage.setItem("token", data.token)
+
+                Cookies.set("token", data.token)
+
                 setErro({estado: false, mensagem: ""})
                 setSucess({estado: true, mensagem: data.message})
 

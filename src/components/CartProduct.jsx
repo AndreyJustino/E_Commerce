@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./CartProduct.module.css"
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
 
 function CartProduct({
   nomeProduto, 
@@ -10,7 +11,7 @@ function CartProduct({
   codProduto
 }) {
   const navigate = useNavigate()
-  const token = localStorage.getItem('token')
+  const token = Cookies.get("token")
 
   function redirecionarCart(token){
     if(token){

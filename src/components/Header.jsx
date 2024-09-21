@@ -5,10 +5,11 @@ import axios from 'axios';
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie"
 
 function Header() {
   const [loading, setLoading] = useState(false)
-  const token = localStorage.getItem('token')
+  const token = Cookies.get('token')
   const navigate = useNavigate()
   
   function redirecionarCart(){

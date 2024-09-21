@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "axios": "^1.7.7",
-    "jwt-decode": "^4.0.0",
+    "js-cookie": "^3.0.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2"
