@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/Header'
 import style from "./Inicial.module.css"
-import CartProduct from '../components/CartProduct'
+import CardProduct from '../components/CardProduct'
 import axios from "axios"
 import Loading from '../components/Loading'
 
@@ -20,7 +20,7 @@ function Inicial() {
       
       setLoading(false)
       overlay.style.display = "none"
-      
+      console.log(response.data.data)
       setData(response.data.data)
     })
   }, [])
@@ -37,7 +37,7 @@ function Inicial() {
           <section className={style.sectionInicial}>
             {
               data.map((item, index) => {
-                return <CartProduct key={index} nomeProduto={item.nome} precoProduto={item.preco} quantidadeProduto={item.quantidade} codProduto={item.code}/>
+                return <CardProduct key={index} nomeProduto={item.nome} precoProduto={item.preco} quantidadeProduto={item.quantidade} codProduto={item.code} />
               })
             }
           </section>

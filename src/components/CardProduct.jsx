@@ -1,24 +1,28 @@
 import React from "react";
-import style from "./CartProduct.module.css"
+import style from "./CardProduct.module.css"
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie"
+import axios from "axios";
 
-function CartProduct({
-  nomeProduto, 
-  nomeVendedor, 
-  precoProduto, 
-  quantidadeProduto,
-  codProduto
-}) {
+function CardProduct({emailComprador, codProduto}) {
   const navigate = useNavigate()
   const token = Cookies.get("token")
 
-  function redirecionarCart(token){
-    if(token){
-      return navigate("/carrinho")  
+  async function redirecionarCart(token){
+    if(!token){
+      return navigate("/cadastrar")
     }
+
+    const response = await axios.post(`https://api-e-commerce-m17f.onrender.com/postCart`,{
+      code: codProduto,
+      emailComprador: emailComprador,
+       
+    })
     
-    return navigate("/cadastrar")
+
+
+
+    return navigate("/carrinho")  
   }
 
   return (
@@ -26,7 +30,6 @@ function CartProduct({
       <div className={style.card_imgProduct}></div>
       <div className={style.card_infoProduct}>
         <p className={style.text_titleProduct}>{nomeProduto}</p>
-        <p className={style.text_bodyProduct}>Nome do vendedor: {nomeVendedor}</p>
         <p className={style.text_bodyProduct}>Quantidade: {quantidadeProduto}</p>
         <p className={style.text_bodyProduct}>{codProduto}</p>
       </div>
@@ -46,4 +49,4 @@ function CartProduct({
   );
 }
 
-export default CartProduct;
+export default CardProduct;
