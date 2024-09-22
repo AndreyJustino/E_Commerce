@@ -109,3 +109,7 @@
     display: none;
   }
 }
+
+.spanHeaderLogout{
+  cursor: pointer;
+}

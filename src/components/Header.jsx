@@ -114,6 +114,10 @@ function Header() {
       <nav className={style.nav_desktop}>
         {token ? (
           <ul>
+            <li onClick={() => {
+              Cookies.remove("token")
+              navigate("/")
+            }}><span className={style.spanHeaderLogout}>Sair da conta</span></li>
             <li className={style.molduraCartHeader} onClick={redirecionarCart}>
               <img src="./src/assets/icon/iconCart.png" />
             </li>
