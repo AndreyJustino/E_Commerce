@@ -36,7 +36,7 @@ function CardProduct({
   
       console.log(response)
       
-      return navigate(`/carrinho/${token}`)  
+      return navigate(`/carrinho`)  
     }catch(error){
       console.log(error.response.data)
       setErro({estado: true, mensagem: error.response.data.message})

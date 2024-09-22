@@ -20,10 +20,6 @@ function Inicial() {
       
       setLoading(false)
       overlay.style.display = "none"
-<<<<<<< HEAD
-=======
-      console.log(response.data.data)
->>>>>>> f2a50a479d5c7755e1bcf67e7bafb953b056aca6
       setData(response.data.data)
     })
   }, [])
@@ -40,11 +36,7 @@ function Inicial() {
           <section className={style.sectionInicial}>
             {
               data.map((item, index) => {
-<<<<<<< HEAD
                 return <CardProduct key={index} nomeProduto={item.nome} precoProduto={item.preco} quantidadeProduto={item.quantidade} codProduto={item.code}/>
-=======
-                return <CardProduct key={index} nomeProduto={item.nome} precoProduto={item.preco} quantidadeProduto={item.quantidade} codProduto={item.code} />
->>>>>>> f2a50a479d5c7755e1bcf67e7bafb953b056aca6
               })
             }
           </section>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import style from "./CardCart.module.css"
 
-function CardCart({nomeProduto, codigo, quantidade, preco}) {
+function CardCart({nomeProduto, codigo, quantidade, preco, index}) {
 
     useEffect(() => {
         preco = preco * quantidade
@@ -16,13 +16,13 @@ function CardCart({nomeProduto, codigo, quantidade, preco}) {
             </div> {/*imagem do produto */}
             
             <div className={style.containerTituloCart}>
-                    <h1>nome do produto</h1>
-                    <p>codigo</p>
+                    <h1>{nomeProduto}</h1>
+                    <p>{codigo}</p>
                 </div>
                 <div  className={style.containerPrecoCart}>
                     <div>
                         <button onClick={() => {
-                            let input = document.getElementById("inputQuantidade")
+                            let input = document.getElementById("inputQuantidade"+index)
 
                             let valor = Number(input.value) - 1
                             
@@ -34,10 +34,10 @@ function CardCart({nomeProduto, codigo, quantidade, preco}) {
 
 
                         }}>-</button>
-                        <input type="text" id='inputQuantidade' readOnly value="1"/>
+                        <input type="text" id={'inputQuantidade'+index} readOnly value="1"/>
                         <span>
                             <button onClick={() => {
-                                let input = document.getElementById("inputQuantidade")
+                                let input = document.getElementById("inputQuantidade"+index)
 
                                 let valor = Number(input.value) + 1
                                 
@@ -52,11 +52,6 @@ function CardCart({nomeProduto, codigo, quantidade, preco}) {
                     </div>
                     <h2>R$ {preco}</h2>
                 </div>
-
-
-            <div className={style.divContainerCart}>
-                
-            </div>
         
         </div>
 

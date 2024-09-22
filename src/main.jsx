@@ -28,7 +28,7 @@ const router = createBrowserRouter([
         element: <Login/>
       },
       {
-        path: "/carrinho/:token",
+        path: "/carrinho",
         element: <Carrinho/>
       },
     ]
