@@ -91,6 +91,10 @@ function Header() {
           {token ? (
             <ul>
               <li onClick={redirecionarCart}>Carrinho</li>
+              <li onClick={() => {
+                Cookies.remove("token")
+                navigate("/")
+              }}><span className={style.spanHeaderLogout}>Sair da conta</span></li>
             </ul>
           ) : (
             <ul>
