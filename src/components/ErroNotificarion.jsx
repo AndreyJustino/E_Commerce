@@ -1,7 +1,7 @@
 import React from "react";
-import "./Erro.css"
+import "./Erro.css";
 
-function ErroNotificarion({message, enviarDados}) {
+function ErroNotificarion({ message, enviarDados }) {
   return (
     <div class="popup-container">
       <div class="popup error-popup">
@@ -19,8 +19,15 @@ function ErroNotificarion({message, enviarDados}) {
             ></path>
           </svg>
         </div>
-        <div class="error-message"><p>{message}</p></div>
-        <div class="popup-icon close-icon" onClick={() => {enviarDados(false)}}>
+        <div class="error-message">
+          <p>{message}</p>
+        </div>
+        <div
+          class="popup-icon close-icon"
+          onClick={() => {
+            enviarDados(false);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"

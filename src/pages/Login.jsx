@@ -2,88 +2,90 @@ import React, { useState } from "react";
 import AlertNotification from "../components/AlertNotification";
 import Loading from "../components/Loading";
 import SucessNotification from "../components/SucessNotification";
-import style from "./Login.module.css"
+import style from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
 
 function Login() {
-    const [email, setEmail] = useState()
-    const [password, setPassword] = useState()
-    const [erro, setErro] = useState({estado: false, mensagem: ""})
-    const [loading, setLoading] = useState(false)
-    const [sucess, setSucess] = useState({estado: false, mensagem: ""})
-    const navigate = useNavigate()
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [erro, setErro] = useState({ estado: false, mensagem: "" });
+  const [loading, setLoading] = useState(false);
+  const [sucess, setSucess] = useState({ estado: false, mensagem: "" });
+  const navigate = useNavigate();
 
-    async function login(e){
-        e.preventDefault()
-        if(!email || !password){
-            setErro({estado: true, mensagem: "Preencha todos os campos"})
-            return;
-        }
-        try{
-            const overlay = document.getElementById("overlay")
-            overlay.style.display = "block"
-            setLoading(true)
-            await fetch("https://api-e-commerce-m17f.onrender.com/loginUser", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({email, password})
-            }).then((response) => response.json())
-            .then((data) => {
-
-                if(data.status != 200){
-                    setLoading(false)
-                    overlay.style.display = "none"
-                    setSucess({estado: false, mensagem: ""})
-                    return setErro({estado: true, mensagem: data.message})
-                }
-
-                setLoading(false)
-                overlay.style.display = "none"
-
-                Cookies.set("token", data.token)
-
-                setErro({estado: false, mensagem: ""})
-                setSucess({estado: true, mensagem: data.message})
-
-                setTimeout(() => {
-                  navigate("/")
-                }, 3000)
-            })
-
-            
-            
-        }catch(error){
-            console.error(error)
-        }
+  async function login(e) {
+    e.preventDefault();
+    if (!email || !password) {
+      setErro({ estado: true, mensagem: "Preencha todos os campos" });
+      return;
     }
+    try {
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "block";
+      setLoading(true);
+      await fetch("https://api-e-commerce-m17f.onrender.com/loginUser", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status != 200) {
+            setLoading(false);
+            overlay.style.display = "none";
+            setSucess({ estado: false, mensagem: "" });
+            return setErro({ estado: true, mensagem: data.message });
+          }
 
-    function receberDados(dados) {
-        setErro(dados);
-        setSucess(dados)
+          setLoading(false);
+          overlay.style.display = "none";
+
+          Cookies.set("token", data.token);
+
+          setErro({ estado: false, mensagem: "" });
+          setSucess({ estado: true, mensagem: data.message });
+
+          setTimeout(() => {
+            navigate("/");
+          }, 3000);
+        });
+    } catch (error) {
+      console.error(error);
     }
+  }
+
+  function receberDados(dados) {
+    setErro(dados);
+    setSucess(dados);
+  }
 
   return (
     <section className="sectionFormCL">
       <form autoComplete="off" onSubmit={login} className={style.formLogin}>
         <h1>Login</h1>
         <div className="overlayCL" id="overlay"></div>
-        {
-            loading &&
-            <div className="loadingCL"><Loading/></div>
-        }
+        {loading && (
+          <div className="loadingCL">
+            <Loading />
+          </div>
+        )}
 
-        {
-            erro.estado &&
-            <AlertNotification message={erro.mensagem} enviarDados={receberDados}/> 
-        }
+        {erro.estado && (
+          <AlertNotification
+            message={erro.mensagem}
+            enviarDados={receberDados}
+          />
+        )}
 
-        {
-            sucess.estado &&
-            <SucessNotification message={sucess.mensagem} enviarDados={receberDados}/>
-        }
+        {sucess.estado && (
+          <SucessNotification
+            message={sucess.mensagem}
+            enviarDados={receberDados}
+          />
+        )}
 
         <div className="blocoCL">
           <label htmlFor="email">Email:</label>
@@ -95,7 +97,7 @@ function Login() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        
+
         <div className="blocoCL">
           <label htmlFor="senha">Senha:</label>
           <input
@@ -108,7 +110,10 @@ function Login() {
           />
         </div>
         <p className="paragrafoLinkCL">
-          Não tem conta? <Link to="/cadastrar" className="link">Clique aqui</Link>
+          Não tem conta?{" "}
+          <Link to="/cadastrar" className="link">
+            Clique aqui
+          </Link>
         </p>
         <button type="submit">Login</button>
       </form>

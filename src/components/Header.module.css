@@ -1,6 +1,6 @@
-.logoHeader{
-    width: 90px;
-    height: 90px;
+.logoHeader {
+  width: 90px;
+  height: 90px;
 }
 
 .header {
@@ -43,7 +43,7 @@
   list-style: none;
 }
 
-.nav_mobile ul li{
+.nav_mobile ul li {
   color: #fff;
   font-size: 2rem;
   text-decoration: none;
@@ -64,14 +64,12 @@
   display: none;
 }
 
-/* ------------------------------------------------- */
-/* ------------------------------------------------- */
-.nav_desktop{
+.nav_desktop {
   display: none;
   margin-left: 20px;
 }
 
-.nav_desktop ul{
+.nav_desktop ul {
   display: flex;
   gap: 13px;
   list-style: none;
@@ -86,7 +84,7 @@
   position: relative;
 }
 
-.molduraCartHeader{
+.molduraCartHeader {
   height: 50px;
   width: 50px;
   background-color: #443c71;
@@ -97,76 +95,17 @@
   cursor: pointer;
 }
 
-.molduraCartHeader img{
+.molduraCartHeader img {
   width: 30px;
   height: 30px;
   margin-right: 5px;
 }
 
-/* ------------------------------------------------- */
-/* ------------------------------------------------- */
-
-@media screen and  (min-width: 805px) {
-  .nav_desktop{
+@media screen and (min-width: 805px) {
+  .nav_desktop {
     display: block;
   }
-  .btn_abrir{
+  .btn_abrir {
     display: none;
   }
 }
-
-
-/* .header {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 10px 0px;
-  background-color: #100d20;
-  flex-wrap: wrap;
-}
-
-.sectionHeader {
-  display: flex;
-  align-items: center;
-  max-width: 1200px;
-  gap: 30px;
-}
-
-.molduraHeader {
-  height: 70px;
-  width: 70px;
-}
-
-.molduraHeader img {
-  width: 100%;
-  height: 100%;
-}
-
-.containerHeaderInput {
-  display: flex;
-  align-items: center;
-}
-
-.molduraIconMenu, .molduraIconClose{
-  width: 45px;
-  height: 45px;
-}
-
-.containerMenuHeader img,
-.molduraIconClose img{
-  width: 100%;
-  height: 100%;
-}
-
-.containerMenuHeader{
-  display: none;
-}
-
-.containerCloseHeader{
-  display: block;
-  border: 2px solid red;
-  width: 70vw;
-}
-
-.containerCloseHeader ul{
-  color: white;
-} */

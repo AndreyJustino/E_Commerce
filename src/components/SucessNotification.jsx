@@ -18,9 +18,15 @@ function SucessNotification({ message, enviarDados }) {
             ></path>
           </svg>
         </div>
-        <div className="success-message"><p>{message}</p></div>
-        <div className="popup-icon close-icon" onClick={() => {
-          enviarDados(false)}}>
+        <div className="success-message">
+          <p>{message}</p>
+        </div>
+        <div
+          className="popup-icon close-icon"
+          onClick={() => {
+            enviarDados(false);
+          }}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
@@ -34,8 +40,6 @@ function SucessNotification({ message, enviarDados }) {
           </svg>
         </div>
       </div>
-
-      
     </div>
   );
 }

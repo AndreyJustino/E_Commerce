@@ -1,10 +1,6 @@
 .mainInicial{
-    /* background-color: #021553af; */
     min-height: 100vh;
     border: 2px solid red;
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center; */
 }
 
 .sectionInicial{
@@ -15,5 +11,4 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
-    /* max-width: 900px; */
 }

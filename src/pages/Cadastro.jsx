@@ -13,7 +13,7 @@ function Cadastro() {
   const [erro, setErro] = useState({ estado: false, mensagem: "" });
   const [sucesso, setSucesso] = useState({ estado: false, mensagem: "" });
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function cadastrar(e) {
     e.preventDefault();
@@ -24,8 +24,8 @@ function Cadastro() {
     }
 
     try {
-      const overlay = document.getElementById("overlay")
-      overlay.style.display = "block"
+      const overlay = document.getElementById("overlay");
+      overlay.style.display = "block";
       setLoading(true);
       await fetch("https://api-e-commerce-m17f.onrender.com/register", {
         method: "POST",
@@ -43,20 +43,20 @@ function Cadastro() {
         .then((data) => {
           if (data.status != 201) {
             setLoading(false);
-            overlay.style.display = "none"
-            setSucesso({estado: false, mensagem: ""})
+            overlay.style.display = "none";
+            setSucesso({ estado: false, mensagem: "" });
             return setErro({ estado: true, mensagem: data.message });
           }
 
           setLoading(false);
-          overlay.style.display = "none"
-          setErro({estado: false, mensagem: ""})
+          overlay.style.display = "none";
+          setErro({ estado: false, mensagem: "" });
 
           setSucesso({ estado: true, mensagem: data.message });
 
           setTimeout(() => {
-            navigate('/login')
-          }, 5000)
+            navigate("/login");
+          }, 5000);
         });
     } catch (error) {
       console.log(error);
@@ -65,20 +65,31 @@ function Cadastro() {
 
   function receberDados(dados) {
     setErro(dados);
-    setSucesso(dados)
+    setSucesso(dados);
   }
 
   return (
     <section className="sectionFormCL">
       <div className="overlayCL" id="overlay"></div>
-      
-      {loading && <div className="loadingCL"><Loading/></div>}
-      
-      <form autoComplete="off" onSubmit={cadastrar} className={style.formCadastro}>
+
+      {loading && (
+        <div className="loadingCL">
+          <Loading />
+        </div>
+      )}
+
+      <form
+        autoComplete="off"
+        onSubmit={cadastrar}
+        className={style.formCadastro}
+      >
         <h1>Cadastro</h1>
-        
+
         {erro.estado && (
-          <AlertNotification message={erro.mensagem} enviarDados={receberDados} />
+          <AlertNotification
+            message={erro.mensagem}
+            enviarDados={receberDados}
+          />
         )}
 
         {sucesso.estado && (
@@ -131,7 +142,10 @@ function Cadastro() {
           />
         </div>
         <p className="paragrafoLinkCL">
-          Ja tem cadastro? <Link to="/login" className="link">Clique aqui</Link>
+          Ja tem cadastro?{" "}
+          <Link to="/login" className="link">
+            Clique aqui
+          </Link>
         </p>
         <button type="submit">Enviar</button>
       </form>
