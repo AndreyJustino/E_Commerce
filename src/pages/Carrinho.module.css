@@ -1,5 +1,6 @@
 .mainCarrinho {
   min-height: 100vh;
+  position: relative;
 }
 
 .cardProductsContainer {
@@ -17,4 +18,26 @@
   border-radius: 10px;
   box-shadow: 2px 2px 3px #8a8a8a;
   padding: 10px;
+}
+
+.notificacaoCarrinho {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+}
+
+.buttonRemoveCart{
+  border: none;
+  font-weight: 600;
+  height: 30px;
+  width: 160px;
+  padding: 10px;
+  margin: 10px 0px;
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  background-color: #d1d1d1;
 }

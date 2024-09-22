@@ -1,11 +1,9 @@
 .mainInicial{
-    min-height: 100vh;
-    border: 2px solid red;
+    min-height: 60vh;
 }
 
 .sectionInicial{
     position: relative;
-    border: 2px solid green;
     margin-top: 20px;
     display: flex;
     justify-content: center;

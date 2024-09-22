@@ -38,8 +38,6 @@ function CardProduct({
         }
       );
 
-      console.log(response);
-
       return navigate(`/carrinho`);
     } catch (error) {
       console.log(error.response.data);

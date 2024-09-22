@@ -22,6 +22,7 @@
 .containerTituloCart {
   border: 2px solid blue;
   padding-top: 15px;
+  max-width: 33%;
 }
 
 .containerTituloCart p {
@@ -32,6 +33,7 @@
   height: 105px;
   width: 145px;
   background-color: #ccc;
+  max-width: 33%;
 }
 
 .containerPrecoCart {
@@ -41,6 +43,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 33%;
 }
 
 .containerPrecoCart h2 {
