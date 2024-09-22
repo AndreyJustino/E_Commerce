@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import style from "./Search.module.css";
+import setaIcon from "../assets/icon/seta.png"
 
 function SearchInput({ receberDados }) {
   const [valor, setValor] = useState();
@@ -32,7 +33,7 @@ function SearchInput({ receberDados }) {
           receberDados({ estado: true, data: valor });
         }}
       >
-        <img src="./src/assets/icon/seta.png" />
+        <img src={setaIcon} />
       </button>
     </div>
   );

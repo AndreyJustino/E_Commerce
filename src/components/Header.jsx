@@ -6,6 +6,10 @@ import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
+import logo from "../assets/logo.png"
+import menu from "../assets/icon/menu.png"
+import close from "../assets/icon/close.png"
+import iconeCart from "../assets/icon/iconCart.png"
 
 function Header() {
   const [loading, setLoading] = useState(false);
@@ -40,7 +44,7 @@ function Header() {
         const response = await axios.get(
           `https://api-e-commerce-m17f.onrender.com/getProducts/${dado}`
         );
-        console.log(response.data);
+
       }
 
       setLoading(false);
@@ -66,7 +70,7 @@ function Header() {
       )}
       <Link to="/">
         <img
-          src="./src/assets/logo.png"
+          src={logo}
           alt="logo"
           className={style.logoHeader}
         />
@@ -76,7 +80,7 @@ function Header() {
 
       <div className={style.btn_abrir} id="btn-abrir" onClick={abrirMenu}>
         <img
-          src="./src/assets/icon/menu.png"
+          src={menu}
           alt="menu"
           className={style.menu}
         />
@@ -84,7 +88,7 @@ function Header() {
 
       <div className={style.menu_mobile} id="menu-mobile">
         <div className={style.btn_fechar} id="btn_fechar" onClick={fecharMenu}>
-          <img src="./src/assets/icon/close.png" alt="close" />
+          <img src={close} alt="close" />
         </div>
 
         <nav className={style.nav_mobile} id="nav-mobile">
@@ -123,7 +127,7 @@ function Header() {
               navigate("/")
             }}><span className={style.spanHeaderLogout}>Sair da conta</span></li>
             <li className={style.molduraCartHeader} onClick={redirecionarCart}>
-              <img src="./src/assets/icon/iconCart.png" />
+              <img src={iconeCart} alt="icone cart"/>
             </li>
           </ul>
         ) : (
