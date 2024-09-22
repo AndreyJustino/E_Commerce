@@ -14,6 +14,11 @@ function Carrinho() {
   const [count, setCount] = useState(0)
 
   const [sucess, setSucess] = useState({estado: false, mensagem: ""})
+  const [quant, setQuant] = useState({key: null, value: null})
+
+  function receberQuant(quant){
+    setQuant(quant)
+  }
 
   function receberDados(dados) {
     setSucess(dados);
@@ -46,7 +51,7 @@ function Carrinho() {
     }
   }, [count]);
 
-  async function removerProduto(code){
+  async function removerProdutoCart(code, mensagem){
     const token = Cookies.get("token")
 
     if(!token){
@@ -65,15 +70,77 @@ function Carrinho() {
       })
 
       setCount((prevent) => prevent + 1)
-      setSucess({estado: true, mensagem: response.data.message})
-
-      setTimeout(() => {
-        setSucess({ estado: false, mensagem: "" });
-      }, 4000);
+      if(mensagem){
+        setSucess({estado: true, mensagem: mensagem})
+  
+        setTimeout(() => {
+          setSucess({ estado: false, mensagem: "" });
+        }, 4000);
+      }
       
     }catch(error){
       console.log(error.message);
     }
+  }
+
+  async function comprarProduto(index,nome,preco,code,quantidade,imgNome,emailVendedor){
+    const token = Cookies.get("token")
+    
+    const quantOriginal = carrinho[index].quantidade
+
+    if(quantOriginal == quantidade){
+      console.log("if quantidade original <<<<<<<")
+      removerProdutoCart(code)
+
+      try{
+        const response = await axios.delete(`https://api-e-commerce-m17f.onrender.com/deleteProducts`, {
+          headers:{
+            'Authorization': `Bearer ${token}`
+          },
+          data: {
+            code: code,
+            email: emailVendedor
+          }
+        })
+      }catch(error){
+        console.log(error.message)
+      }
+      
+      setCount((prevent) => prevent + 1)
+        setSucess({estado: true, mensagem: "Compra finalizada."})
+  
+      setTimeout(() => {
+        setSucess({ estado: false, mensagem: "" });
+      }, 4000);
+      return;
+    }
+
+    try{
+      removerProdutoCart(code)
+      
+      const response = await axios.put("https://api-e-commerce-m17f.onrender.com/putProduct",{
+        nome: nome,
+        preco: preco,
+        imgNome: imgNome,
+        code: code,
+        quantidade: quantidade
+      },{
+        headers:{
+          'Authorization': `Bearer ${token}`
+        }
+      })
+
+      setCount((prevent) => prevent + 1)
+        setSucess({estado: true, mensagem: "Compra finalizada."})
+  
+      setTimeout(() => {
+        setSucess({ estado: false, mensagem: "" });
+      }, 4000);
+
+    }catch(error){
+      console.log(error.message)
+    }
+    
   }
 
   return (
@@ -104,14 +171,21 @@ function Carrinho() {
                     preco={item.preco}
                     quantidade={item.quantidade}
                     index={index}
+                    enviarDados={receberQuant}
                   />
-                  <button onClick={() => {
-                    removerProduto(item.code)
-                  }} className={style.buttonRemoveCart}>
-                    Remover produto.
-                  </button>
+                  <div className={style.containerCartButton}>
+                    <button onClick={() => {
+                      removerProdutoCart(item.code, "Produto removido com sucesso!")
+                    }} className={style.buttonRemoveCart}>
+                      Remover produto.
+                    </button>
+                    <button onClick={() => {
+                      comprarProduto(index, item.nome,item.preco,item.code,quant.value, item.imgNome, item.emailVendedor)
+                    }} className={style.buttonCartBuy}>
+                      Comprar
+                    </button>
+                  </div>
                 </>
-                
               );
             })
           ) : (

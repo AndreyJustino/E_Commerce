@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./CardCart.module.css";
 
-function CardCart({ nomeProduto, codigo, quantidade, preco, index }) {
+function CardCart({ nomeProduto, codigo, quantidade, preco, index, enviarDados }) {
+  const [valor, setValor] = useState(1)
   
-  
+  function incrementar(){
+    if(valor < quantidade){
+      const novoValor = valor + 1;
+      setValor(novoValor);
+      enviarDados({ key: index, value: novoValor });
+    }
+  }
+
+  function decrementar(){
+    if (valor > 1) {
+      const novoValor = valor - 1;
+      setValor(novoValor);
+      enviarDados({ key: index, value: novoValor });
+    }
+  }
+
   return (
     <>
       
@@ -16,17 +32,7 @@ function CardCart({ nomeProduto, codigo, quantidade, preco, index }) {
         <div className={style.containerPrecoCart}>
           <div>
             <button
-              onClick={() => {
-                let input = document.getElementById("inputQuantidade" + index);
-
-                let valor = Number(input.value) - 1;
-
-                if (valor > 0) {
-                  input.value = valor;
-
-                  preco = preco * valor;
-                }
-              }}
+              onClick={decrementar}
             >
               -
             </button>
@@ -34,27 +40,18 @@ function CardCart({ nomeProduto, codigo, quantidade, preco, index }) {
               type="text"
               id={"inputQuantidade" + index}
               readOnly
-              value="1"
+              value={valor}
+
             />
             <span>
               <button
-                onClick={() => {
-                  let input = document.getElementById("inputQuantidade" + index);
-
-                  let valor = Number(input.value) + 1;
-
-                  if (valor <= quantidade) {
-                    input.value = valor;
-
-                    preco = preco * valor;
-                  }
-                }}
+                onClick={incrementar}
               >
                 +
               </button>
             </span>
           </div>
-          <h2>R$ {preco}</h2>
+          <h2>R$ {preco * valor}</h2>
         </div>
       </div>
     </>

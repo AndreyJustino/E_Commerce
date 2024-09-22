@@ -26,7 +26,12 @@
   top: 0;
 }
 
-.buttonRemoveCart{
+.containerCartButton{
+  display: flex;
+  gap: 10px;
+}
+
+.buttonRemoveCart, .buttonCartBuy{
   border: none;
   font-weight: 600;
   height: 30px;
