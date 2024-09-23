@@ -38,36 +38,42 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   ```
 
 2. Acesse o diretório do projeto:
    
    ```bash
    cd e_commerce
+   ```
 
 3. Instale as dependências:
 
    ```bash
    npm install
+   ```
 
 ou, se você estiver usando Yarn:
 
    ```bash
    yarn install
-
+   ```
 4. Execute o projeto:
 
     ```bash
    npm run dev
+   ```
 
 ou, se você estiver usando Yarn:
 
    ```bash
    yarn dev
+   ```
 
 5. Acesse o projeto no navegador:
 
    ```bash
    http://localhost:5173/
+   ```
 
 ## 📂 Estrutura de Pastas
 
@@ -80,6 +86,7 @@ A estrutura de pastas do projeto segue um padrão comum para aplicações React:
  ├── assets/             # Imagens, ícones, etc.
  ├── index.css           # Arquivo de estilo global 
  └── App.js              # Componente principal
+ ```
 
 ## 📝 Licença
 
