@@ -87,7 +87,7 @@ A estrutura de pastas do projeto segue um padrão comum para aplicações React:
  ├── index.css           # Arquivo de estilo global 
  └── App.js              # Componente principal
  ```
+## Demonstração
 
-## 📝 Licença
+https://e-commerce-nine-umber-48.vercel.app/
 
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
