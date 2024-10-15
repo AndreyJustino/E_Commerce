@@ -8,6 +8,7 @@ import Cadastro from './pages/Cadastro.jsx'
 import Login from './pages/Login.jsx'
 import ErrorPage from './pages/ErrorPage.jsx'
 import Carrinho from './pages/Carrinho.jsx'
+import CadastrarProduto from './pages/CadastrarProduto.jsx'
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
       {
         path: "/carrinho",
         element: <Carrinho/>
+      },
+      {
+        path: "/produto",
+        element: <CadastrarProduto/>
       },
     ]
   }

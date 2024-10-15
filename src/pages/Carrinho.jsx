@@ -55,7 +55,7 @@ function Carrinho() {
     const token = Cookies.get("token")
 
     if(!token){
-      return navigate("/login")
+      return navigate("/")
     }
     
     try{
